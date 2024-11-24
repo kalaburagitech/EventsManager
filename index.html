@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Events Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>My Events Manager</h1>
+    <span id="eventCount">Showing 0 events</span>
+    
+    <!-- Moved filters to header -->
+    <div id="filters">
+        <div class="filter-box">
+            <label for="showAll">Show:</label>
+            <select id="showAll">
+                <option value="all">All</option>
+            </select>
+        </div>
+        <input type="text" id="titleFilter" placeholder="Title">
+        <input type="text" id="descriptionFilter" placeholder="Description">
+        <input type="text" id="dateFilter" placeholder="Date">
+        <div class="button-group">
+            <button id="applyFilters">Submit</button>
+            <button id="clearFilters">Clear Filters</button>
+        </div>
+    </div>
+</header>
+
+<!-- Pagination controls at the top -->
+<div id="paginationTop" class="pagination-controls">
+    <button id="prevPage">Previous</button>
+    <select id="itemsPerPage">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="all">All</option>
+    </select>
+    <button id="nextPage">Next</button>
+</div>
+
+<main id="eventsContainer">
+    <!-- Events will be dynamically populated here -->
+</main>
+
+<!-- Pagination controls at the bottom -->
+<div id="paginationBottom" class="pagination-controls">
+    <button id="prevPageBottom">Previous</button>
+    <select id="itemsPerPageBottom">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="all">All</option>
+    </select>
+    <button id="nextPageBottom">Next</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

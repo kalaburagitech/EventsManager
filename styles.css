@@ -1,0 +1,226 @@
+/* General Fix for Mobile Overflow */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure sections and other large containers don't overflow */
+section, header, footer {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+background: linear-gradient(90deg, #4e77f0, #39fdd2);
+color: #ecf0f1;
+text-align: left;
+padding: 10px 20px;
+position: relative;
+}
+
+header h1 {
+margin: 0;
+font-size: 24px;
+}
+
+#eventCount {
+display: block;
+margin-top: 10px;
+font-size: 14px;
+}
+
+/* Filters are now part of the header */
+#filters {
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+padding: 15px;
+background: linear-gradient(90deg, #0d45ed, #03d9aa);
+border-radius: 10px; /* Rounded corners */
+max-width: 100%;
+margin: 20px auto;
+}
+
+#filters input,
+#filters select {
+margin: 5px;
+padding: 10px;
+border-radius: 5px;
+width: 180px;
+border: none;
+}
+
+.filter-box {
+padding: 10px;
+border-radius: 5px;
+}
+
+#filters button {
+background-color: #e74c3c;
+color: #ecf0f1;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+border: none;
+margin: 5px;
+}
+
+#filters button:hover {
+background-color: #c0392b;
+}
+
+#eventsContainer {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+padding: 20px;
+gap: 20px;
+}
+
+/* Same height and width for event cards */
+.event-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.2s;
+  overflow: hidden; /* Ensure no overflow */
+  position: relative;
+}
+
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-card h3 {
+  margin: 15px;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.event-card p {
+  margin: 0 15px;
+  font-size: 14px;
+  color: #555;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show only 3 lines of description */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.event-card .learn-more {
+  margin: 10px 15px;
+  color: #3498db;
+  cursor: pointer;
+  text-align: right;
+  font-weight: bold;
+}
+
+.event-card.expanded p {
+  -webkit-line-clamp: unset; /* Remove line clamp when expanded */
+  height: auto; /* Auto height for expanded description */
+}
+
+.event-card .full-description {
+  display: none;
+}
+
+.event-card.expanded .full-description {
+  display: block;
+}
+
+/* Hover effect */
+.event-card:hover {
+  transform: scale(1.05);
+}
+
+/* Pagination Styles */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination-controls button,
+.pagination-controls select {
+  background-color: #4e77f0;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pagination-controls button:hover,
+.pagination-controls select:hover {
+  background-color: #39fdd2;
+  transform: translateY(-3px);
+}
+
+.pagination-controls button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls select {
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #4e77f0;
+  border: 2px solid #4e77f0;
+  padding: 8px 15px;
+  border-radius: 5px;
+  appearance: none;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagination-controls select:hover {
+  border-color: #39fdd2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-controls select option {
+  background-color: #ffffff;
+  color: #4e77f0;
+}
+
+
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+#filters {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filter-box,
+#filters input,
+#filters select,
+#filters button {
+  width: 100%; /* Full width for mobile */
+  margin: 10px 0;
+}
+
+.event-card {
+  width: calc(100% - 20px);
+}
+}
